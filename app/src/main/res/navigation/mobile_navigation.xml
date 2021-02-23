@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    android:label="Dependent / profile"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.warehouseBundle.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_report"
+        android:name="com.warehouseBundle.ui.report.ReportFragment"
+        android:label="Report" />
+    <fragment
+        android:id="@+id/nav_profile_menu"
+        android:name="com.warehouseBundle.ui.profile.ProfileFragment"
+        android:label="Profile menu"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_nav_profile_menu_to_nav_profile"
+            app:destination="@id/nav_profile" />
+        <action
+            android:id="@+id/action_nav_profile_menu_to_nav_dependent"
+            app:destination="@id/nav_dependent" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_scan"
+        android:name="com.warehouseBundle.ui.scan_qr.ScanFragment"
+        android:label="Scan"
+        tools:layout="@layout/fragment_scan_qr">
+        <action
+            android:id="@+id/action_nav_scan_to_scanInsertFragment"
+            app:destination="@id/nav_scan_insert" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_scan_insert"
+        android:name="com.warehouseBundle.ui.scan_qr.ScanInsertFragment"
+        android:label="Scan/insert"
+        tools:layout="@layout/fragment_scan_insert" />
+    <fragment
+        android:id="@+id/nav_item_list"
+        android:name="com.warehouseBundle.ui.item_list.ItemListFragment"
+        android:label="Item list"
+        tools:layout="@layout/fragment_item_list" >
+        <action
+            android:id="@+id/action_nav_item_list_to_nav_item_detail"
+            app:destination="@id/nav_item_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_item_detail"
+        android:name="com.warehouseBundle.ui.item_list.ItemDetailFragment"
+        android:label="Item list / detail"
+        tools:layout="@layout/fragment_item_detail" />
+    <fragment
+        android:id="@+id/nav_dependent"
+        android:name="com.warehouseBundle.ui.profile.DependentFragment"
+        android:label="Staff dependent"
+        tools:layout="@layout/fragment_dependent" >
+        <action
+            android:id="@+id/action_nav_dependent_to_nav_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.warehouseBundle.ui.profile.StaffProfileFragment"
+        android:label="fragment_own_profile"
+        tools:layout="@layout/fragment_own_profile" />
+    <fragment
+        android:id="@+id/nav_stock_item"
+        android:name="com.warehouseBundle.ui.stock_out.OutStockSelectItemFragment"
+        android:label="Stock out / rack / item"
+        tools:layout="@layout/fragment_select_item" />
+    <fragment
+        android:id="@+id/nav_stock_rack"
+        android:name="com.warehouseBundle.ui.stock_out.OutStockSelectRackFragment"
+        android:label="Stock out / rack"
+        tools:layout="@layout/fragment_stock_out_select_rack">
+        <action
+            android:id="@+id/action_outStockSelectRackFragment_to_outStockSelectItemFragment"
+            app:destination="@id/nav_stock_item" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_stock"
+        android:name="com.warehouseBundle.ui.stock_out.OutStockMainFragment"
+        android:label="Stock out"
+        tools:layout="@layout/fragment_stock_out">
+        <action
+            android:id="@+id/action_outStockMainFragment_to_outStockSelectRackFragment"
+            app:destination="@id/nav_stock_rack" />
+    </fragment>
+
+</navigation>
